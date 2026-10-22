@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- ============================================================== -->
+    <!-- Root                                                           -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.KioskApp" owl="1">
+        <div class="o_ppc_app" t-att-class="rootClass" t-att-style="rootStyle">
+            <div t-if="state.progress" class="o_ppc_idle_progress" aria-hidden="true">
+                <div t-attf-style="width: {{ (state.progress * 100).toFixed(1) }}%;"/>
+            </div>
+
+            <header class="o_ppc_header">
+                <button type="button" class="o_ppc_brand" t-on-click="clear" aria-label="Home">
+                    <img t-att-src="config.logoUrl" alt="Logo"/>
+                </button>
+                <SearchBar query="state.query"
+                           loading="state.view === 'loading'"
+                           keyboardEnabled="config.keyboardEnabled"
+                           keyboardOpen="state.keyboardOpen"
+                           cameraAvailable="cameraAvailable"
+                           focusToken="state.focusToken"
+                           onInput.bind="onQueryInput"
+                           onSubmit.bind="search"
+                           onClear.bind="clear"
+                           onToggleKeyboard.bind="toggleKeyboard"
+                           onOpenCamera.bind="openCamera"/>
+                <LanguageSwitcher t-if="config.languages.length > 1"
+                                  languages="config.languages"
+                                  current="config.lang"
+                                  onSelect.bind="switchLanguage"/>
+            </header>
+
+            <main class="o_ppc_main" aria-live="polite">
+                <IdleScreen t-if="state.view === 'idle'"
+                            config="config"
+                            history="state.history"
+                            onOpenHistory.bind="openHistory"
+                            onClearHistory.bind="clearHistory"/>
+
+                <div t-elif="state.view === 'loading'" class="o_ppc_loading">
+                    <div class="o_ppc_spinner" role="status"/>
+                    <span>Searching...</span>
+                </div>
+
+                <ResultsList t-elif="state.view === 'results'"
+                             results="state.results"
+                             query="state.lastQuery"
+                             onOpen.bind="openResult"/>
+
+                <t t-elif="state.view === 'product' and state.product">
+                    <button t-if="state.results.length" type="button"
+                            class="o_ppc_back btn btn-link" t-on-click="backToResults">
+                        <i class="fa fa-arrow-left o_ppc_flip_rtl o_ppc_mie" role="img" aria-label="Back"/>
+                        <span>Back to results</span>
+                    </button>
+                    <ProductView product="state.product"
+                                 selectedVariantId="state.selectedVariantId"
+                                 stock="currentStock"
+                                 stockLoading="state.stockLoading"
+                                 showStock="showStock"
+                                 onSelectVariant.bind="selectVariant"/>
+                </t>
+
+                <div t-elif="state.view === 'none'" class="o_ppc_message o_ppc_not_found">
+                    <i class="fa fa-search fa-3x" role="img" aria-label="Not found"/>
+                    <h2>No product found</h2>
+                    <p t-if="state.lastQuery" class="o_ppc_message_query" dir="auto" t-esc="state.lastQuery"/>
+                    <p t-if="state.error" t-esc="state.error"/>
+                    <p t-else="">Check the barcode or try another search.</p>
+                </div>
+
+                <div t-elif="state.view === 'error'" class="o_ppc_message o_ppc_error">
+                    <i class="fa fa-exclamation-triangle fa-3x" role="img" aria-label="Error"/>
+                    <h2>Something went wrong</h2>
+                    <p t-esc="state.error"/>
+                </div>
+            </main>
+
+            <OnScreenKeyboard t-if="state.keyboardOpen"
+                              lang="config.lang.code"
+                              onKey.bind="onKeyboardKey"
+                              onBackspace.bind="onKeyboardBackspace"
+                              onClear.bind="onKeyboardClear"
+                              onEnter.bind="onKeyboardEnter"
+                              onClose.bind="toggleKeyboard"/>
+
+            <CameraScanner t-if="state.cameraOpen"
+                           onDetected.bind="onCameraDetected"
+                           onClose.bind="closeCamera"/>
+        </div>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Search bar                                                     -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.SearchBar" owl="1">
+        <form class="o_ppc_search" role="search" t-on-submit="onSubmit" autocomplete="off">
+            <i class="fa fa-barcode o_ppc_search_icon" role="img" aria-label="Barcode"/>
+            <input t-ref="input" type="search" name="query" class="o_ppc_search_input"
+                   dir="auto" enterkeyhint="search" autocapitalize="off" spellcheck="false"
+                   t-att-inputmode="props.keyboardOpen ? 'none' : 'search'"
+                   t-att-value="props.query" t-on-input="onInput"
+                   placeholder="Scan or type a barcode, reference or name"
+                   aria-label="Search a product"/>
+            <button t-if="props.query" type="button" class="o_ppc_icon_btn"
+                    t-on-click="() => props.onClear()" aria-label="Clear">
+                <i class="fa fa-times"/>
+            </button>
+            <button t-if="props.keyboardEnabled" type="button"
+                    class="o_ppc_icon_btn" t-att-class="{ 'active': props.keyboardOpen }"
+                    t-on-click="() => props.onToggleKeyboard()" aria-label="Keyboard">
+                <i class="fa fa-keyboard-o"/>
+            </button>
+            <button t-if="props.cameraAvailable" type="button" class="o_ppc_icon_btn"
+                    t-on-click="() => props.onOpenCamera()" aria-label="Scan with the camera">
+                <i class="fa fa-camera"/>
+            </button>
+            <button type="submit" class="o_ppc_search_btn" t-att-disabled="props.loading">
+                <i class="fa fa-search" role="img" aria-label="Search"/>
+                <span class="o_ppc_search_btn_label">Search</span>
+            </button>
+        </form>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Language switcher                                              -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.LanguageSwitcher" owl="1">
+        <div class="o_ppc_lang" t-ref="root">
+            <button type="button" class="o_ppc_lang_btn" t-on-click="toggle"
+                    t-att-aria-expanded="state.open ? 'true' : 'false'" aria-label="Language">
+                <i class="fa fa-globe"/>
+                <span t-esc="currentIso"/>
+            </button>
+            <div t-if="state.open" class="o_ppc_lang_menu" role="menu">
+                <button t-foreach="props.languages" t-as="lang" t-key="lang.code"
+                        type="button" role="menuitemradio" class="o_ppc_lang_item"
+                        t-att-class="{ 'active': lang.code === props.current.code }"
+                        t-att-aria-checked="lang.code === props.current.code ? 'true' : 'false'"
+                        t-att-data-lang="lang.code" t-att-dir="lang.direction"
+                        t-on-click="() => this.select(lang)">
+                    <span class="o_ppc_lang_iso" t-esc="lang.iso"/>
+                    <span t-esc="lang.name"/>
+                </button>
+            </div>
+        </div>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Idle screen                                                    -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.IdleScreen" owl="1">
+        <section class="o_ppc_idle">
+            <div class="o_ppc_welcome">
+                <div class="o_ppc_scan_anim" aria-hidden="true">
+                    <i class="fa fa-barcode"/>
+                    <span class="o_ppc_scan_line"/>
+                </div>
+                <h1 t-esc="props.config.welcomeTitle"/>
+                <p t-esc="props.config.welcomeSubtitle"/>
+            </div>
+
+            <div t-if="props.config.promos.length" class="o_ppc_promos">
+                <figure t-foreach="props.config.promos" t-as="promo" t-key="promo.id"
+                        class="o_ppc_promo" t-att-class="{ 'active': promo_index === state.slide }">
+                    <img t-att-src="promo.url" t-att-alt="promo.name" loading="lazy"/>
+                    <figcaption t-if="promo.name" t-esc="promo.name"/>
+                </figure>
+                <div t-if="props.config.promos.length > 1" class="o_ppc_promo_dots" aria-hidden="true">
+                    <span t-foreach="props.config.promos" t-as="promo" t-key="promo.id"
+                          t-att-class="{ 'active': promo_index === state.slide }"/>
+                </div>
+            </div>
+
+            <div t-if="props.history.length" class="o_ppc_history">
+                <div class="o_ppc_history_header">
+                    <h3><i class="fa fa-history o_ppc_mie"/>Recently checked</h3>
+                    <button type="button" class="o_ppc_history_clear"
+                            t-on-click="() => props.onClearHistory()">Clear</button>
+                </div>
+                <div class="o_ppc_history_list">
+                    <button t-foreach="props.history" t-as="entry" t-key="entry.productId"
+                            type="button" class="o_ppc_history_item"
+                            t-on-click="() => props.onOpenHistory(entry)">
+                        <img t-att-src="entry.imageUrl" alt="" loading="lazy"/>
+                        <span class="o_ppc_history_name" t-esc="entry.name"/>
+                        <span class="o_ppc_history_price" t-esc="entry.priceFmt"/>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Search results                                                 -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.ResultsList" owl="1">
+        <section class="o_ppc_results">
+            <h2 class="o_ppc_results_title">
+                <span>Results for</span> <q dir="auto" t-esc="props.query"/>
+                <small class="text-muted o_ppc_mis">(<t t-esc="props.results.length"/>)</small>
+            </h2>
+            <div class="o_ppc_results_grid">
+                <button t-foreach="props.results" t-as="result" t-key="result.template_id"
+                        type="button" class="o_ppc_result_card"
+                        t-att-data-template-id="result.template_id"
+                        t-on-click="() => props.onOpen(result)">
+                    <img t-att-src="result.image_url" alt="" loading="lazy"/>
+                    <span class="o_ppc_result_name" t-esc="result.name"/>
+                    <span t-if="result.default_code" class="o_ppc_result_ref" t-esc="result.default_code"/>
+                    <span class="o_ppc_result_footer">
+                        <span class="o_ppc_result_price" t-esc="result.price_fmt"/>
+                        <span t-if="result.variant_count > 1" class="o_ppc_badge">
+                            <t t-esc="result.variant_count"/> variants
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </section>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Camera scanner                                                 -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.CameraScanner" owl="1">
+        <div class="o_ppc_camera" role="dialog" aria-modal="true" aria-label="Camera scanner">
+            <video t-ref="video" playsinline="" muted="" autoplay=""/>
+            <div class="o_ppc_camera_frame" aria-hidden="true"/>
+            <p t-if="state.error" class="o_ppc_camera_error" t-esc="state.error"/>
+            <p t-else="" class="o_ppc_camera_hint">Point the camera at the barcode</p>
+            <button type="button" class="o_ppc_camera_close" t-on-click="() => props.onClose()"
+                    aria-label="Close">
+                <i class="fa fa-times"/>
+            </button>
+        </div>
+    </t>
+
+</templates>

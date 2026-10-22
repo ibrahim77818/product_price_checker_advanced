@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Kiosk page. Built on web.frontend_layout so it benefits from the standard
+        public stack (OWL, translations service, RTL-aware CSS bundles, tours in
+        test mode). The kiosk's own assets come from a dedicated bundle that is
+        only loaded here.
+    -->
+    <template id="kiosk_page" name="Price Checker Kiosk">
+        <t t-call="web.frontend_layout">
+            <t t-set="x_icon" t-value="'/product_price_checker_advanced/static/description/icon.png'"/>
+            <t t-set="head">
+                <meta name="robots" content="noindex, nofollow"/>
+                <meta name="theme-color" t-att-content="config.primary_color or '#714B67'"/>
+                <meta name="mobile-web-app-capable" content="yes"/>
+                <meta name="apple-mobile-web-app-capable" content="yes"/>
+                <t t-call-assets="product_price_checker_advanced.assets_kiosk" t-js="false"/>
+                <t t-call-assets="product_price_checker_advanced.assets_kiosk" t-css="false" defer_load="True"/>
+            </t>
+            <!-- Explicit dir: the kiosk never depends on the RTL bundle being generated (rtlcss). -->
+            <div id="o_ppc_root" class="o_ppc_root"
+                 t-att-dir="lang_direction"
+                 t-att-lang="html_data['lang']"
+                 t-att-data-config="ui_config_json"
+                 t-attf-style="--ppc-primary: #{config.primary_color or '#714B67'};">
+                <!-- Server-side splash, replaced by the OWL application once mounted. -->
+                <div class="o_ppc_splash">
+                    <i class="fa fa-barcode fa-3x" role="img" aria-label="Barcode"/>
+                    <span t-esc="config.name"/>
+                </div>
+            </div>
+            <noscript>
+                <p class="text-center p-5">This kiosk requires JavaScript.</p>
+            </noscript>
+        </t>
+    </template>
+
+</odoo>

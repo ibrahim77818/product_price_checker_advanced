@@ -1,0 +1,1294 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_price_checker_advanced
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-22 10:02+0000\n"
+"PO-Revision-Date: 2026-10-22 10:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copie)"
+
+#. module: product_price_checker_advanced
+#: model:product.template,description_sale:product_price_checker_advanced.demo_tmpl_tshirt
+msgid "100% combed cotton, regular fit, 180 g/m². Machine washable at 30°C."
+msgstr ""
+"100 % coton peigné, coupe droite, 180 g/m². Lavable en machine à 30 °C."
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_shoe_41
+msgid "41"
+msgstr ""
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_shoe_42
+msgid "42"
+msgstr ""
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_shoe_43
+msgid "43"
+msgstr ""
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.kiosk_page
+msgid "<i class=\"fa fa-barcode fa-3x\" role=\"img\" aria-label=\"Barcode\"/>"
+msgstr "<i class=\"fa fa-barcode fa-3x\" role=\"img\" aria-label=\"Code-barres\"/>"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_kanban
+msgid "<i class=\"fa fa-external-link me-1\"/>Open"
+msgstr "<i class=\"fa fa-external-link me-1\"/>Ouvrir"
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "A domain must be a list."
+msgstr "Un domaine doit être une liste."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.constraint,message:product_price_checker_advanced.constraint_product_checker_pricelist_pricelist_unique
+msgid "A pricelist can only be added once per kiosk."
+msgstr "Une liste de prix ne peut être ajoutée qu’une fois par borne."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "A promotion slide must last at least 2 seconds."
+msgstr "Une diapositive promotionnelle doit durer au moins 2 secondes."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "ABC"
+msgstr ""
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__token
+msgid "Access Token"
+msgstr "Jeton d’accès"
+
+#. module: product_price_checker_advanced
+#: model:ir.module.category,description:product_price_checker_advanced.module_category_price_checker
+msgid "Access to the price checker kiosks."
+msgstr "Accès aux bornes de vérification des prix."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: product_price_checker_advanced
+#: model:product.template,description_sale:product_price_checker_advanced.demo_product_earbuds_product_template
+msgid "Active noise cancelling, 30 h battery with the charging case."
+msgstr "Réduction de bruit active, 30 h d’autonomie avec le boîtier."
+
+#. module: product_price_checker_advanced
+#: model:res.groups,name:product_price_checker_advanced.group_price_checker_manager
+msgid "Administrator"
+msgstr "Administrateur"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "All variants"
+msgstr "Toutes les variantes"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "All warehouses"
+msgstr "Tous les entrepôts"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__price_tax_mode
+msgid ""
+"Applied when the Invoicing/Accounting module is installed and the product "
+"has customer taxes."
+msgstr ""
+"Appliqué lorsque le module Facturation/Comptabilité est installé et que le "
+"produit a des taxes client."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "Archived kiosks cannot be opened."
+msgstr "Les bornes archivées ne peuvent pas être ouvertes."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__clear_delay
+msgid "Auto-clear After (s)"
+msgstr "Effacement auto après (s)"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Availability"
+msgstr "Disponibilité"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__stock_qty_mode__status
+msgid "Availability Status"
+msgstr "Statut de disponibilité"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__stock_qty_mode
+msgid ""
+"Availability status shows \"In stock / Low stock / Out of stock\" instead of"
+" exact quantities."
+msgstr ""
+"Le statut affiche « En stock / Stock faible / Rupture » au lieu des "
+"quantités exactes."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Available"
+msgstr "Disponible"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Back"
+msgstr "Retour"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__reset_lang_on_idle
+msgid "Back to Default Language When Idle"
+msgstr "Revenir à la langue par défaut en veille"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Back to results"
+msgstr "Retour aux résultats"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__background_image
+msgid "Background Image"
+msgstr "Image de fond"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "Retour arrière"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Barcode"
+msgstr "Code-barres"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Behaviour"
+msgstr "Comportement"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_color_black
+msgid "Black"
+msgstr "Noir"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_color_blue
+msgid "Blue"
+msgstr "Bleu"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__camera_enabled
+msgid "Camera Scanning"
+msgstr "Scan par caméra"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Camera scanner"
+msgstr "Scanner caméra"
+
+#. module: product_price_checker_advanced
+#: model:res.groups,comment:product_price_checker_advanced.group_price_checker_user
+msgid "Can see the kiosks, but not their access tokens."
+msgstr "Peut voir les bornes, mais pas leurs jetons d’accès."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__name
+msgid "Caption"
+msgstr "Légende"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_pricelist__label
+msgid ""
+"Caption shown on the kiosk, e.g. \"Members price\". Defaults to the "
+"pricelist name."
+msgstr ""
+"Libellé affiché sur la borne, ex. « Prix membres ». Par défaut, le nom de la"
+" liste de prix."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#: model:product.checker.config,welcome_title:product_price_checker_advanced.demo_kiosk_main
+#: model:product.checker.config,welcome_title:product_price_checker_advanced.demo_kiosk_warehouse
+#, python-format
+msgid "Check a price"
+msgstr "Vérifiez un prix"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Check the barcode or try another search."
+msgstr "Vérifiez le code-barres ou essayez une autre recherche."
+
+#. module: product_price_checker_advanced
+#: model:product.template,name:product_price_checker_advanced.demo_tmpl_tshirt
+msgid "Classic Cotton T-Shirt"
+msgstr "T-shirt classique en coton"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Clear"
+msgstr "Effacer"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Close"
+msgstr "Fermer"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute,name:product_price_checker_advanced.demo_attr_color
+msgid "Colour"
+msgstr "Couleur"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__company_id
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__company_id
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_search
+msgid "Company"
+msgstr "Société"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__config_id
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__config_id
+msgid "Config"
+msgstr "Configuration"
+
+#. module: product_price_checker_advanced
+#: model:ir.ui.menu,name:product_price_checker_advanced.menu_price_checker_configuration
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.actions.act_window,help:product_price_checker_advanced.action_product_checker_config
+msgid "Create your first price checker kiosk"
+msgstr "Créez votre première borne de vérification des prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__create_uid
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__create_uid
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__create_date
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__create_date
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: product_price_checker_advanced
+#: model:res.groups,comment:product_price_checker_advanced.group_price_checker_manager
+msgid "Creates kiosks, manages their tokens and appearance."
+msgstr "Crée les bornes, gère leurs jetons et leur apparence."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__default_lang_id
+msgid "Default Language"
+msgstr "Langue par défaut"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__logo
+msgid "Defaults to the company logo."
+msgstr "Par défaut, le logo de la société."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid ""
+"Devices using the current link will stop working until they get the new URL."
+" Continue?"
+msgstr ""
+"Les appareils utilisant le lien actuel cesseront de fonctionner jusqu’à "
+"réception de la nouvelle URL. Continuer ?"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Display"
+msgstr "Affichage"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__display_name
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__display_name
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__price_tax_mode
+msgid "Displayed Prices"
+msgstr "Prix affichés"
+
+#. module: product_price_checker_advanced
+#: model:product.template,description_sale:product_price_checker_advanced.demo_product_bottle_product_template
+msgid "Double-wall insulated: 24 h cold, 12 h hot. BPA free."
+msgstr "Double paroi isolante : 24 h froid, 12 h chaud. Sans BPA."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.actions.act_window,help:product_price_checker_advanced.action_product_checker_config
+msgid ""
+"Each kiosk gets its own secret URL: open it on a tablet or a\n"
+"               wall-mounted screen and customers can scan products to see prices,\n"
+"               variants and stock."
+msgstr ""
+"Chaque borne a sa propre URL secrète : ouvrez-la sur une tablette ou un "
+"écran mural et vos clients scannent les produits pour voir prix, variantes "
+"et stock."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "Enable at least one search method."
+msgstr "Activez au moins une méthode de recherche."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Error"
+msgstr "Erreur"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Every location holding stock"
+msgstr "Tout emplacement contenant du stock"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__stock_qty_mode__quantity
+msgid "Exact Quantities"
+msgstr "Quantités exactes"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__show_variant_matrix
+msgid ""
+"For products with variants, also show the stock of every variant per "
+"warehouse."
+msgstr ""
+"Pour les produits à variantes, affiche aussi le stock de chaque variante par"
+" entrepôt."
+
+#. module: product_price_checker_advanced
+#: model:product.attribute,name:product_price_checker_advanced.demo_attr_giftwrap
+msgid "Gift Wrap"
+msgstr "Emballage cadeau"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_giftwrap_yes
+msgid "Gift wrapped"
+msgstr "Emballé cadeau"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_search
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__stock_display__hidden
+msgid "Hidden"
+msgstr "Masqué"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Hide keyboard"
+msgstr "Masquer le clavier"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "History"
+msgstr "Historique"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__history_limit
+msgid "History Limit"
+msgstr "Limite de l’historique"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Home"
+msgstr "Accueil"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__id
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__id
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__id
+msgid "ID"
+msgstr ""
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Idle"
+msgstr "Veille"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__image
+msgid "Image"
+msgstr "Image"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/stock_matrix.js:0
+#, python-format
+msgid "In stock"
+msgstr "En stock"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Input"
+msgstr "Saisie"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Inventory"
+msgstr "Inventaire"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Keyboard"
+msgstr "Clavier"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__lang_ids
+msgid "Kiosk Languages"
+msgstr "Langues de la borne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__kiosk_url
+msgid "Kiosk URL"
+msgstr "URL de la borne"
+
+#. module: product_price_checker_advanced
+#: model:ir.ui.menu,name:product_price_checker_advanced.menu_price_checker_kiosks
+msgid "Kiosks"
+msgstr "Bornes"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__label
+msgid "Label"
+msgstr "Libellé"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Language"
+msgstr "Langue"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__lang_ids
+msgid "Languages offered on the kiosk language switcher."
+msgstr "Langues proposées par le sélecteur de langue de la borne."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config____last_update
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist____last_update
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__write_uid
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__write_uid
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__write_date
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__write_date
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Latin letters"
+msgstr "Lettres latines"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__warehouse_ids
+msgid "Leave empty to include every warehouse of the company."
+msgstr "Laissez vide pour inclure tous les entrepôts de la société."
+
+#. module: product_price_checker_advanced
+#: model:product.template,description_sale:product_price_checker_advanced.demo_tmpl_sneaker
+msgid ""
+"Lightweight knit upper, cushioned EVA sole. Ideal for daily city walks."
+msgstr ""
+"Tige en maille légère, semelle EVA amortissante. Idéales pour la ville."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Loading stock..."
+msgstr "Chargement du stock..."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__location_ids
+msgid "Locations"
+msgstr "Emplacements"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__logo
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_kanban
+#, python-format
+msgid "Logo"
+msgstr "Logo"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__low_stock_threshold
+msgid "Low Stock Threshold"
+msgstr "Seuil de stock faible"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/stock_matrix.js:0
+#, python-format
+msgid "Low stock"
+msgstr "Stock faible"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_limit
+msgid "Max. Results"
+msgstr "Résultats max."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_min_chars
+msgid "Minimum Characters"
+msgstr "Caractères minimum"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_price_checker_advanced
+#: model:product.checker.promo,name:product_price_checker_advanced.demo_kiosk_main_promo_season
+msgid "New season collection is here"
+msgstr "La nouvelle collection est arrivée"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "No product found"
+msgstr "Aucun produit trouvé"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_giftwrap_no
+msgid "No wrapping"
+msgstr "Sans emballage"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Not found"
+msgstr "Introuvable"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Numbers"
+msgstr "Chiffres"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "On hand"
+msgstr "En main"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__keyboard_enabled
+msgid "On-screen Keyboard"
+msgstr "Clavier virtuel"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "On-screen keyboard"
+msgstr "Clavier virtuel"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__product_domain
+msgid "Only products matching this domain can be looked up on the kiosk."
+msgstr ""
+"Seuls les produits correspondant à ce domaine peuvent être consultés sur la "
+"borne."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Open Kiosk"
+msgstr "Ouvrir la borne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__location_ids
+msgid ""
+"Optional. When set, the breakdown shows exactly these locations (each one "
+"including its children) instead of every location holding stock."
+msgstr ""
+"Facultatif. Si renseigné, le détail affiche exactement ces emplacements "
+"(enfants inclus) au lieu de tous les emplacements contenant du stock."
+
+#. module: product_price_checker_advanced
+#: model:product.template,name:product_price_checker_advanced.demo_product_coffee_product_template
+msgid "Organic Coffee Beans 1 kg"
+msgstr "Café en grains bio 1 kg"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/stock_matrix.js:0
+#, python-format
+msgid "Out of stock"
+msgstr "Rupture de stock"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__stock_display__location
+msgid "Per Location"
+msgstr "Par emplacement"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__stock_display__warehouse
+msgid "Per Warehouse"
+msgstr "Par entrepôt"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/kiosk_app.js:0
+#, python-format
+msgid "Please type a longer search."
+msgstr "Veuillez saisir une recherche plus longue."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/kiosk_app.js:0
+#, python-format
+msgid "Please type at least %s characters."
+msgstr "Veuillez saisir au moins %s caractères."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Point the camera at the barcode"
+msgstr "Pointez la caméra vers le code-barres"
+
+#. module: product_price_checker_advanced
+#: model:product.checker.pricelist,label:product_price_checker_advanced.demo_kiosk_main_pl_public
+msgid "Price"
+msgstr "Prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.module.category,name:product_price_checker_advanced.module_category_price_checker
+#: model:ir.ui.menu,name:product_price_checker_advanced.menu_price_checker_root
+msgid "Price Checker"
+msgstr "Vérificateur de prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.model,name:product_price_checker_advanced.model_product_checker_config
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Price Checker Kiosk"
+msgstr "Borne de vérification des prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.actions.act_window,name:product_price_checker_advanced.action_product_checker_config
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_search
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_tree
+msgid "Price Checker Kiosks"
+msgstr "Bornes de vérification des prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.model,name:product_price_checker_advanced.model_product_checker_pricelist
+msgid "Price Checker Pricelist"
+msgstr "Liste de prix de la borne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model,name:product_price_checker_advanced.model_product_checker_promo
+msgid "Price Checker Promotion"
+msgstr "Promotion de la borne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__pricelist_id
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__pricelist_line_ids
+#: model:ir.ui.menu,name:product_price_checker_advanced.menu_price_checker_pricelists
+msgid "Pricelists"
+msgstr "Listes de prix"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__pricelist_line_ids
+msgid "Prices displayed on the kiosk. The first line is the main (big) price."
+msgstr ""
+"Prix affichés sur la borne. La première ligne est le prix principal (en "
+"grand)."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Pricing"
+msgstr "Tarification"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__primary_color
+msgid "Primary Color"
+msgstr "Couleur principale"
+
+#. module: product_price_checker_advanced
+#: model:ir.ui.menu,name:product_price_checker_advanced.menu_price_checker_attributes
+msgid "Product Attributes"
+msgstr "Attributs de produit"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Product Details"
+msgstr "Détails du produit"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Products"
+msgstr "Produits"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__product_domain
+msgid "Products Filter"
+msgstr "Filtre des produits"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__promo_ids
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Promotions"
+msgstr "Promotions"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__kiosk_url
+msgid ""
+"Public URL of the kiosk. Anyone with this link can look up prices and stock,"
+" so share it only with your store devices."
+msgstr ""
+"URL publique de la borne. Toute personne disposant du lien peut consulter "
+"prix et stock : partagez-la uniquement avec les appareils du magasin."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Recently checked"
+msgstr "Consultés récemment"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_color_red
+msgid "Red"
+msgstr "Rouge"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Reference"
+msgstr "Référence"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Regenerate Token"
+msgstr "Régénérer le jeton"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Results for"
+msgstr "Résultats pour"
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#: model:product.checker.config,welcome_subtitle:product_price_checker_advanced.demo_kiosk_main
+#: model:product.checker.config,welcome_subtitle:product_price_checker_advanced.demo_kiosk_warehouse
+#, python-format
+msgid "Scan a barcode or search for a product"
+msgstr "Scannez un code-barres ou recherchez un produit"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Scan or type a barcode, reference or name"
+msgstr "Scannez ou saisissez un code-barres, une référence ou un nom"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Scan with the camera"
+msgstr "Scanner avec la caméra"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+#, python-format
+msgid "Search"
+msgstr "Rechercher"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Search By"
+msgstr "Rechercher par"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Search a product"
+msgstr "Rechercher un produit"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_barcode
+msgid "Search by Barcode"
+msgstr "Recherche par code-barres"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_default_code
+msgid "Search by Internal Reference"
+msgstr "Recherche par référence interne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_packaging
+msgid "Search by Packaging Barcode"
+msgstr "Recherche par code-barres de colisage"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__search_name
+msgid "Search by Product Name"
+msgstr "Recherche par nom de produit"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Searching..."
+msgstr "Recherche..."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__clear_delay
+msgid ""
+"Seconds of inactivity after which the result is cleared. 0 disables it."
+msgstr "Secondes d’inactivité avant l’effacement du résultat. 0 le désactive."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__sequence
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_pricelist__sequence
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_promo__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__history_enabled
+msgid "Session History"
+msgstr "Historique de session"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Shift"
+msgstr "Majuscule"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute,name:product_price_checker_advanced.demo_attr_shoe
+msgid "Shoe Size"
+msgstr "Pointure"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_barcode
+msgid "Show Barcode"
+msgstr "Afficher le code-barres"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_category
+msgid "Show Category"
+msgstr "Afficher la catégorie"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_default_code
+msgid "Show Internal Reference"
+msgstr "Afficher la référence interne"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_discount
+msgid "Show Original Price"
+msgstr "Afficher le prix d’origine"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_description
+msgid "Show Sales Description"
+msgstr "Afficher la description de vente"
+
+#. module: product_price_checker_advanced
+#: model:product.template,description_sale:product_price_checker_advanced.demo_product_coffee_product_template
+msgid "Single-origin arabica, medium roast."
+msgstr "Arabica d’origine unique, torréfaction moyenne."
+
+#. module: product_price_checker_advanced
+#: model:product.attribute,name:product_price_checker_advanced.demo_attr_size
+msgid "Size"
+msgstr "Taille"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__promo_interval
+msgid "Slide Duration (s)"
+msgstr "Durée de diapositive (s)"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "Something went wrong"
+msgstr "Une erreur est survenue"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Space"
+msgstr "Espace"
+
+#. module: product_price_checker_advanced
+#: model:product.template,name:product_price_checker_advanced.demo_product_bottle_product_template
+msgid "Stainless Water Bottle 750 ml"
+msgstr "Gourde inox 750 ml"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Status"
+msgstr "Statut"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__stock_display
+msgid "Stock Breakdown"
+msgstr "Détail du stock"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__stock_qty_mode
+msgid "Stock Display"
+msgstr "Affichage du stock"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Stock is not tracked for this product."
+msgstr "Le stock n’est pas suivi pour ce produit."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__show_discount
+msgid "Strike through the list price when a pricelist gives a lower price."
+msgstr ""
+"Barrer le prix catalogue lorsqu’une liste de prix donne un prix inférieur."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__price_tax_mode__excluded
+msgid "Tax Excluded"
+msgstr "Hors taxes"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields.selection,name:product_price_checker_advanced.selection__product_checker_config__price_tax_mode__included
+msgid "Tax Included"
+msgstr "Toutes taxes comprises"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__taxes_available
+msgid "Taxes Available"
+msgstr "Taxes disponibles"
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The auto-clear delay cannot be negative."
+msgstr "Le délai d’effacement automatique ne peut pas être négatif."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/camera_scanner.js:0
+#, python-format
+msgid "The camera is not available on this device."
+msgstr "La caméra n’est pas disponible sur cet appareil."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/kiosk_app.js:0
+#, python-format
+msgid "The connection to the server failed. Please try again."
+msgstr "La connexion au serveur a échoué. Veuillez réessayer."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The default language must be one of the kiosk languages."
+msgstr "La langue par défaut doit faire partie des langues de la borne."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid ""
+"The first pricelist is displayed as the main price.\n"
+"                                Without any line, the company's first pricelist is used."
+msgstr ""
+"La première liste de prix est affichée comme prix principal. Sans ligne, la "
+"première liste de prix de la société est utilisée."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The history limit must be between 0 and 50."
+msgstr "La limite de l’historique doit être comprise entre 0 et 50."
+
+#. module: product_price_checker_advanced
+#: model:ir.model.constraint,message:product_price_checker_advanced.constraint_product_checker_config_token_unique
+msgid "The kiosk token must be unique."
+msgstr "Le jeton de la borne doit être unique."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The low stock threshold cannot be negative."
+msgstr "Le seuil de stock faible ne peut pas être négatif."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The maximum number of results must be between 1 and 100."
+msgstr "Le nombre maximal de résultats doit être compris entre 1 et 100."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The minimum number of characters must be at least 1."
+msgstr "Le nombre minimal de caractères doit être au moins 1."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The primary color must be a hex color such as #714B67."
+msgstr ""
+"La couleur principale doit être une couleur hexadécimale comme #714B67."
+
+#. module: product_price_checker_advanced
+#. odoo-python
+#: code:addons/product_price_checker_advanced/models/product_checker_config.py:0
+#, python-format
+msgid "The products filter is invalid: %s"
+msgstr "Le filtre des produits est invalide : %s"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/js/components/kiosk_app.js:0
+#, python-format
+msgid "This kiosk link is no longer valid. Please contact the store staff."
+msgstr ""
+"Le lien de cette borne n’est plus valide. Veuillez contacter le personnel du"
+" magasin."
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.kiosk_page
+msgid "This kiosk requires JavaScript."
+msgstr "Cette borne nécessite JavaScript."
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "This variant"
+msgstr "Cette variante"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Unit of measure:"
+msgstr "Unité de mesure :"
+
+#. module: product_price_checker_advanced
+#: model:product.template,name:product_price_checker_advanced.demo_tmpl_sneaker
+msgid "Urban Runner Sneakers"
+msgstr "Baskets Urban Runner"
+
+#. module: product_price_checker_advanced
+#: model:res.groups,name:product_price_checker_advanced.group_price_checker_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,help:product_price_checker_advanced.field_product_checker_config__camera_enabled
+msgid "Uses the browser BarcodeDetector API when the device supports it."
+msgstr ""
+"Utilise l’API BarcodeDetector du navigateur lorsque l’appareil la prend en "
+"charge."
+
+#. module: product_price_checker_advanced
+#: model:product.checker.pricelist,label:product_price_checker_advanced.demo_kiosk_main_pl_vip
+#: model:product.pricelist,name:product_price_checker_advanced.demo_pricelist_vip
+msgid "VIP Members"
+msgstr "Membres VIP"
+
+#. module: product_price_checker_advanced
+#: model:product.checker.promo,name:product_price_checker_advanced.demo_kiosk_main_promo_members
+msgid "VIP members save 10% on everything"
+msgstr "Les membres VIP économisent 10 % sur tout"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/product_view.xml:0
+#, python-format
+msgid "Variant"
+msgstr "Variante"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__show_variant_matrix
+msgid "Variants x Warehouses Matrix"
+msgstr "Matrice variantes x entrepôts"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__warehouse_ids
+msgid "Warehouses"
+msgstr "Entrepôts"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "Welcome Screen"
+msgstr "Écran d’accueil"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__welcome_subtitle
+msgid "Welcome Subtitle"
+msgstr "Sous-titre d’accueil"
+
+#. module: product_price_checker_advanced
+#: model:ir.model.fields,field_description:product_price_checker_advanced.field_product_checker_config__welcome_title
+msgid "Welcome Title"
+msgstr "Titre d’accueil"
+
+#. module: product_price_checker_advanced
+#: model:product.attribute.value,name:product_price_checker_advanced.demo_attr_color_white
+msgid "White"
+msgstr "Blanc"
+
+#. module: product_price_checker_advanced
+#: model:product.template,name:product_price_checker_advanced.demo_product_earbuds_product_template
+msgid "Wireless Earbuds Pro"
+msgstr "Écouteurs sans fil Pro"
+
+#. module: product_price_checker_advanced
+#: model_terms:ir.ui.view,arch_db:product_price_checker_advanced.product_checker_config_view_form
+msgid "e.g. Main Store - Entrance"
+msgstr "ex. Magasin principal - Entrée"
+
+#. module: product_price_checker_advanced
+#. odoo-javascript
+#: code:addons/product_price_checker_advanced/static/src/xml/kiosk_app.xml:0
+#, python-format
+msgid "variants"
+msgstr "variantes"

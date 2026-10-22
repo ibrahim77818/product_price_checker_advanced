@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_price_checker_root"
+              name="Price Checker"
+              web_icon="product_price_checker_advanced,static/description/icon.png"
+              groups="group_price_checker_user"
+              sequence="45"/>
+
+    <menuitem id="menu_price_checker_kiosks"
+              name="Kiosks"
+              parent="menu_price_checker_root"
+              action="action_product_checker_config"
+              sequence="10"/>
+
+    <menuitem id="menu_price_checker_configuration"
+              name="Configuration"
+              parent="menu_price_checker_root"
+              groups="group_price_checker_manager"
+              sequence="90"/>
+
+    <menuitem id="menu_price_checker_pricelists"
+              name="Pricelists"
+              parent="menu_price_checker_configuration"
+              action="product.product_pricelist_action2"
+              sequence="10"/>
+
+    <menuitem id="menu_price_checker_attributes"
+              name="Product Attributes"
+              parent="menu_price_checker_configuration"
+              action="product.attribute_action"
+              sequence="20"/>
+
+</odoo>

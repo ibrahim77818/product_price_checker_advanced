@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- ============================================================== -->
+    <!-- Product sheet                                                  -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.ProductView" owl="1">
+        <article class="o_ppc_product" t-att-data-product-id="variant.id">
+            <div class="o_ppc_product_media">
+                <!-- t-key restarts the fade-in animation on every variant change -->
+                <img t-key="variant.id" class="o_ppc_product_image"
+                     t-att-src="variant.image_url" t-att-alt="variant.display_name"/>
+            </div>
+
+            <div class="o_ppc_product_info">
+                <div t-if="props.product.template.category" class="o_ppc_product_category"
+                     t-esc="props.product.template.category"/>
+                <h1 class="o_ppc_product_name" t-esc="props.product.template.name"/>
+                <div t-if="variant.variant_label" class="o_ppc_variant_label"
+                     t-esc="variant.variant_label"/>
+
+                <dl class="o_ppc_identifiers">
+                    <t t-if="variant.default_code">
+                        <dt>Reference</dt>
+                        <dd class="o_ppc_default_code" dir="ltr" t-esc="variant.default_code"/>
+                    </t>
+                    <t t-if="variant.barcode">
+                        <dt>Barcode</dt>
+                        <dd class="o_ppc_barcode" dir="ltr" t-esc="variant.barcode"/>
+                    </t>
+                </dl>
+
+                <PricePanel prices="variant.prices"/>
+
+                <VariantSelector t-if="hasMatrix"
+                                 attributes="props.product.attributes"
+                                 variants="props.product.variants"
+                                 selectedVariantId="props.selectedVariantId"
+                                 onSelect="props.onSelectVariant"/>
+
+                <p t-if="props.product.template.description" class="o_ppc_description"
+                   t-esc="props.product.template.description"/>
+            </div>
+
+            <div t-if="props.showStock" class="o_ppc_product_stock">
+                <StockMatrix stock="props.stock"
+                             loading="props.stockLoading"
+                             selectedVariantId="props.selectedVariantId"
+                             onSelectVariant="props.onSelectVariant"/>
+            </div>
+        </article>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Prices                                                         -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.PricePanel" owl="1">
+        <div class="o_ppc_prices">
+            <div t-if="primary" class="o_ppc_price_main">
+                <span class="o_ppc_price_label" t-esc="primary.label"/>
+                <div class="o_ppc_price_row">
+                    <span class="o_ppc_price" t-esc="primary.price_fmt"/>
+                    <del t-if="primary.discount" class="o_ppc_price_old" t-esc="primary.list_price_fmt"/>
+                    <span t-if="primary.discount" class="o_ppc_discount">-<t t-esc="primary.discount"/>%</span>
+                </div>
+            </div>
+            <ul t-if="secondary.length" class="o_ppc_price_others">
+                <li t-foreach="secondary" t-as="price" t-key="price.pricelist_id"
+                    t-att-data-pricelist-id="price.pricelist_id">
+                    <span class="o_ppc_price_label" t-esc="price.label"/>
+                    <span class="o_ppc_price_other" t-esc="price.price_fmt"/>
+                    <span t-if="price.discount" class="o_ppc_discount">-<t t-esc="price.discount"/>%</span>
+                </li>
+            </ul>
+        </div>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Variant attribute matrix                                       -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.VariantSelector" owl="1">
+        <div class="o_ppc_variants">
+            <div t-foreach="props.attributes" t-as="attribute" t-key="attribute.id"
+                 class="o_ppc_attribute" t-att-data-attribute-id="attribute.id">
+                <div class="o_ppc_attribute_title">
+                    <span t-esc="attribute.name"/>:
+                    <strong class="o_ppc_attribute_value" t-esc="selectedValueName(attribute)"/>
+                </div>
+                <div class="o_ppc_attribute_values" role="radiogroup" t-att-aria-label="attribute.name">
+                    <t t-foreach="attribute.values" t-as="value" t-key="value.id">
+                        <t t-set="vstate" t-value="valueState(attribute, value)"/>
+                        <button type="button" role="radio"
+                                t-att-class="{
+                                    'o_ppc_value': true,
+                                    'o_ppc_swatch': attribute.display_type === 'color' and value.html_color,
+                                    'o_ppc_pill': !(attribute.display_type === 'color' and value.html_color),
+                                    'o_ppc_selected': vstate === 'selected',
+                                    'o_ppc_unavailable': vstate === 'unavailable',
+                                }"
+                                t-att-style="attribute.display_type === 'color' ? swatchStyle(value) : ''"
+                                t-att-aria-checked="vstate === 'selected' ? 'true' : 'false'"
+                                t-att-title="value.name"
+                                t-att-data-value-id="value.id"
+                                t-att-data-value-name="value.name"
+                                t-on-click="() => this.onClickValue(attribute, value)">
+                            <t t-if="!(attribute.display_type === 'color' and value.html_color)" t-esc="value.name"/>
+                        </button>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- Stock                                                          -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.StockMatrix" owl="1">
+        <section class="o_ppc_stock" t-att-class="{ 'o_ppc_stock_loading': props.loading }">
+            <div class="o_ppc_stock_header">
+                <h2><i class="fa fa-cubes o_ppc_mie"/>Availability</h2>
+                <div t-if="props.stock and props.stock.matrix" class="o_ppc_tabs" role="tablist">
+                    <button type="button" role="tab" class="o_ppc_tab o_ppc_tab_locations"
+                            t-att-class="{ 'active': state.tab === 'locations' }"
+                            t-on-click="() => this.selectTab('locations')">This variant</button>
+                    <button type="button" role="tab" class="o_ppc_tab o_ppc_tab_variants"
+                            t-att-class="{ 'active': state.tab === 'variants' }"
+                            t-on-click="() => this.selectTab('variants')">All variants</button>
+                </div>
+            </div>
+
+            <div t-if="!props.stock" class="o_ppc_stock_empty">
+                <t t-if="props.loading">Loading stock...</t>
+                <t t-else="">Stock is not tracked for this product.</t>
+            </div>
+
+            <!-- Selected variant: warehouses and their locations -->
+            <table t-elif="state.tab === 'locations' or !props.stock.matrix" class="o_ppc_stock_table">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <t t-if="showQuantities">
+                            <th class="o_ppc_num">On hand</th>
+                            <th class="o_ppc_num">Available</th>
+                        </t>
+                        <th t-else="" class="o_ppc_num">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="props.stock.warehouses" t-as="warehouse" t-key="warehouse.id">
+                        <tr class="o_ppc_stock_wh" t-att-data-warehouse-code="warehouse.code">
+                            <th scope="row">
+                                <span class="o_ppc_wh_code" t-esc="warehouse.code"/>
+                                <span t-esc="warehouse.name"/>
+                            </th>
+                            <t t-call="product_price_checker_advanced.StockCells">
+                                <t t-set="cell" t-value="warehouse"/>
+                            </t>
+                        </tr>
+                        <tr t-foreach="warehouse.locations" t-as="location" t-key="location.id"
+                            class="o_ppc_stock_loc" t-att-data-location-name="location.name">
+                            <td><span class="o_ppc_loc_name" t-esc="location.name"/></td>
+                            <t t-call="product_price_checker_advanced.StockCells">
+                                <t t-set="cell" t-value="location"/>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot t-if="props.stock.warehouses.length > 1">
+                    <tr class="o_ppc_stock_total">
+                        <th scope="row">Total</th>
+                        <t t-call="product_price_checker_advanced.StockCells">
+                            <t t-set="cell" t-value="props.stock.total"/>
+                        </t>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Variants x warehouses -->
+            <div t-else="" class="o_ppc_matrix_wrapper">
+                <table class="o_ppc_stock_table o_ppc_matrix">
+                    <thead>
+                        <tr>
+                            <th>Variant</th>
+                            <th t-foreach="props.stock.matrix.warehouses" t-as="warehouse" t-key="warehouse.id"
+                                class="o_ppc_num" t-att-title="warehouse.name" t-esc="warehouse.code"/>
+                            <th class="o_ppc_num">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="props.stock.matrix.rows" t-as="row" t-key="row.product_id"
+                            class="o_ppc_matrix_row"
+                            t-att-class="{ 'o_ppc_selected': row.product_id === props.selectedVariantId }"
+                            t-att-data-product-id="row.product_id"
+                            t-on-click="() => props.onSelectVariant(row.product_id)">
+                            <th scope="row" t-esc="row.label"/>
+                            <td t-foreach="row.cells" t-as="cell" t-key="cell_index"
+                                class="o_ppc_num" t-att-class="'o_ppc_status_' + cell.status">
+                                <span class="o_ppc_dot"/>
+                                <t t-esc="cellText(cell)"/>
+                            </td>
+                            <td class="o_ppc_num o_ppc_matrix_total" t-att-class="'o_ppc_status_' + row.total.status">
+                                <t t-esc="cellText(row.total)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div t-if="props.stock" class="o_ppc_stock_uom">
+                <span>Unit of measure:</span> <t t-esc="props.stock.uom"/>
+            </div>
+        </section>
+    </t>
+
+    <t t-name="product_price_checker_advanced.StockCells" owl="1">
+        <t t-if="showQuantities">
+            <td class="o_ppc_num o_ppc_on_hand" t-esc="formatQty(cell.on_hand)"/>
+            <td class="o_ppc_num o_ppc_available" t-att-class="'o_ppc_status_' + cell.status">
+                <span class="o_ppc_dot"/>
+                <t t-esc="formatQty(cell.available)"/>
+            </td>
+        </t>
+        <td t-else="" class="o_ppc_num" t-att-class="'o_ppc_status_' + cell.status">
+            <span class="o_ppc_dot"/>
+            <t t-esc="statusLabel(cell.status)"/>
+        </td>
+    </t>
+
+    <!-- ============================================================== -->
+    <!-- On-screen keyboard                                             -->
+    <!-- ============================================================== -->
+    <t t-name="product_price_checker_advanced.OnScreenKeyboard" owl="1">
+        <div class="o_ppc_keyboard" t-att-class="{ 'o_ppc_keyboard_numeric': state.mode === 'numeric' }"
+             role="group" aria-label="On-screen keyboard"
+             t-on-pointerdown="onPointerDown">
+            <div t-foreach="layout.rows" t-as="row" t-key="row_index" class="o_ppc_kb_row">
+                <button t-foreach="row" t-as="key" t-key="key" type="button" class="o_ppc_key"
+                        t-att-data-key="key" t-on-click="() => this.press(key)"
+                        t-esc="keyLabel(key)"/>
+            </div>
+            <div class="o_ppc_kb_row o_ppc_kb_actions">
+                <button type="button" class="o_ppc_key o_ppc_key_fn" t-on-click="() => this.setMode('numeric')"
+                        t-att-class="{ 'active': state.mode === 'numeric' }" aria-label="Numbers">123</button>
+                <button t-if="showLatinSwitch" type="button" class="o_ppc_key o_ppc_key_fn"
+                        t-att-class="{ 'active': state.mode === 'latin' }"
+                        t-on-click="() => this.setMode('latin')" aria-label="Latin letters">ABC</button>
+                <button t-if="layout.latin and state.mode !== 'numeric'" type="button"
+                        class="o_ppc_key o_ppc_key_fn" t-att-class="{ 'active': state.shift }"
+                        t-on-click="toggleShift" aria-label="Shift">
+                    <i class="fa fa-arrow-up"/>
+                </button>
+                <button type="button" class="o_ppc_key o_ppc_key_space" t-on-click="() => props.onKey(' ')"
+                        aria-label="Space">␣</button>
+                <button type="button" class="o_ppc_key o_ppc_key_fn" t-on-click="() => props.onBackspace()"
+                        aria-label="Backspace">
+                    <i class="fa fa-long-arrow-left o_ppc_flip_rtl"/>
+                </button>
+                <button type="button" class="o_ppc_key o_ppc_key_fn" t-on-click="() => props.onClear()">Clear</button>
+                <button type="button" class="o_ppc_key o_ppc_key_enter" t-on-click="() => props.onEnter()">
+                    <i class="fa fa-search o_ppc_mie"/>Search
+                </button>
+                <button type="button" class="o_ppc_key o_ppc_key_fn" t-on-click="() => props.onClose()"
+                        aria-label="Hide keyboard">
+                    <i class="fa fa-chevron-down"/>
+                </button>
+            </div>
+        </div>
+    </t>
+
+</templates>

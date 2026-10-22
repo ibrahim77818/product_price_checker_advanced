@@ -1,0 +1,205 @@
+<!-- Odoo Apps description page for product_price_checker_advanced (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Retail &middot; Inventory &middot; Kiosk</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Product Price Checker Kiosk</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Turn any tablet or screen into a self-service price checker: customers scan a barcode and instantly see the price, every variant and the stock in each of your warehouses. No login, one secret link per kiosk, in the customer&rsquo;s own language &ndash; including Arabic, right to left.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">38 automated tests incl. browser tour</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: product_price_checker_advanced</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">0 logins</div><div style="font-size:15px;color:#555;">Each kiosk opens from its own 256-bit secret URL</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">4 ways to find</div><div style="font-size:15px;color:#555;">Barcode, packaging barcode, reference, name</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 tap</div><div style="font-size:15px;color:#555;">Switch colour or size: image, price and stock follow</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">Any language</div><div style="font-size:15px;color:#555;">Switch on screen, RTL included (Arabic &amp; French shipped)</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Customers want to check a price or a size without waiting for staff. Odoo already has the data; it just has no screen made for them.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>There is <b>no public price checker</b>: product, price and stock screens require an Odoo user.</li>
+      <li>Answering &ldquo;do you have it in blue, size L?&rdquo; means opening the <b>product variants</b> one by one.</li>
+      <li>Pricelist prices are seen in a <b>quotation or the POS</b>, not next to the product.</li>
+      <li>Stock per warehouse and per shelf lives in <b>Inventory reports</b>, for back-office users.</li>
+      <li>A scanner in a shop has <b>nothing to scan into</b> unless a POS session is open.</li>
+      <li>Self-service screens are <b>single-language</b> and not built for touch.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>A <b>token-secured kiosk page</b> per device, no account needed, regenerable at any time.</li>
+      <li>An <b>interactive variant matrix</b>: tap Colour and Size, everything updates instantly.</li>
+      <li><b>Several pricelists side by side</b> (e.g. Price and VIP Members) with discount badges.</li>
+      <li>A <b>real-time stock breakdown</b> per warehouse or location, plus a variants &times; warehouses matrix.</li>
+      <li>Works with <b>hardware scanners, the device camera</b> and an <b>on-screen keyboard</b>.</li>
+      <li>A <b>language switcher</b> with translated products, keyboards and right-to-left layout.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">From install to a working kiosk in a few minutes.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Create a kiosk</div><div style="font-size:14px;color:#555;">In <b>Price Checker &rsaquo; Kiosks</b>, name it and pick its pricelists and languages.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Choose what to show</div><div style="font-size:14px;color:#555;">Search methods, product filter, stock breakdown, quantities or status only.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Open the link</div><div style="font-size:14px;color:#555;">Copy the <b>Kiosk URL</b> to a tablet, screen or scanner terminal and connect a scanner.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Customers scan</div><div style="font-size:14px;color:#555;">Price, variants and stock appear at once; the screen clears itself when idle.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 6px;">Screenshots use the module&rsquo;s demo data: a T-shirt (3 colours &times; 3 sizes), sneakers with one combination not sold, three warehouses with shelves, and a <b>VIP Members</b> pricelist.</p>
+
+<div style="margin:36px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One app, one card per kiosk</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Price Checker</b> app lists your kiosks under <b>Price Checker &rsaquo; Kiosks</b>, each with an <b>Open</b> button. Administrators also get <b>Configuration &rsaquo; Pricelists</b> and <b>Configuration &rsaquo; Product Attributes</b> as shortcuts.</p>
+  <img src="ppc_01_kiosks.png" alt="Price Checker app with the list of kiosks" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A secret link per kiosk, several pricelists per screen</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Every kiosk gets its own <b>Kiosk URL</b> with a copy button. <b>Regenerate Token</b> invalidates the old link immediately (lost tablet, staff change). On the <b>Pricing</b> tab, order the pricelists you want to display and give each one a translatable <b>Label</b>; the first line is the big price. <b>Show Original Price</b> strikes through the list price whenever a pricelist is cheaper.</p>
+  <img src="ppc_02_config_pricing.png" alt="Kiosk form: Kiosk URL, languages and Pricing tab" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Scan, type or point the camera</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Hardware scanners work out of the box, even when the search field is not focused. Exact matches on <b>Barcode</b>, <b>Packaging Barcode</b> or <b>Internal Reference</b> open the right variant directly; otherwise a name search returns a grid of products. On supported devices a camera button scans with the browser&rsquo;s built-in barcode reader. The <b>Search</b> tab also sets the <b>Products Filter</b> (by default only products that <i>Can be Sold</i>).</p>
+  <img src="ppc_04_config_search.png" alt="Search tab: search methods, input options and products filter" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppc_09_results.png" alt="Kiosk search results grid" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Interactive variant matrix</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Colours show as swatches, other attributes as large buttons. All variants are loaded with the first scan, so tapping <b>Blue</b> then <b>L</b> updates the image, the prices of every pricelist (including <b>price extras</b>), the <b>Reference</b>, the <b>Barcode</b> and the stock without waiting.</p>
+  <img src="ppc_06_variant_matrix.png" alt="T-shirt in Blue, L with prices, attributes and stock per location" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Combinations you don&rsquo;t sell are crossed out</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Archived variants are never shown. Values that don&rsquo;t combine with the current selection are crossed out (here: red sneakers don&rsquo;t exist in 43); tapping one jumps to the closest variant that does exist. Attributes set to create variants <b>Never</b> (sale options) stay out of the matrix.</p>
+  <img src="ppc_08_unavailable.png" alt="Sneakers size 43 with the Red swatch crossed out" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Stock in every warehouse, shelf and variant</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Quantities are read live: <b>On hand</b>, and <b>Available</b> after reservations. The <b>Availability</b> panel lists each warehouse with its locations; the <b>All variants</b> tab shows every variant &times; warehouse at once &ndash; tap a row to switch to that variant. On the <b>Inventory</b> tab choose <b>Per Warehouse</b> or <b>Per Location</b>, limit the <b>Warehouses</b>, or pick exact <b>Locations</b> (children included).</p>
+  <img src="ppc_07_stock_matrix.png" alt="Variants by warehouses stock matrix" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppc_03_config_inventory.png" alt="Inventory tab: stock breakdown, display and warehouses" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Status-only mode for public screens</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Prefer not to show exact quantities? Set <b>Stock Display</b> to <b>Availability Status</b>: customers see <b>In stock</b>, <b>Low stock</b> or <b>Out of stock</b>, and the quantities are never sent to the browser. Each kiosk has its own colour, here the warehouse kiosk from the demo data.</p>
+  <img src="ppc_13_status_mode.png" alt="Kiosk showing availability status per warehouse" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">The customer&rsquo;s language, right to left included</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The globe button lists the <b>Kiosk Languages</b>. The whole screen switches: interface, product names and descriptions, attribute values, price formats, and the layout direction for Arabic. Names can be searched in any kiosk language. The on-screen keyboard follows the language (Arabic, AZERTY, QWERTZ or QWERTY) with <b>ABC</b> and <b>123</b> shortcuts for references. With <b>Back to Default Language When Idle</b>, the next customer starts in your default language.</p>
+  <img src="ppc_10_languages.png" alt="Language switcher on the kiosk home screen" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppc_11_arabic_rtl.png" alt="Kiosk in Arabic with right-to-left layout" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppc_12_keyboard_ar.png" alt="Arabic on-screen keyboard" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Welcome screen, promotions and history</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">While idle the kiosk shows your <b>Welcome Title</b>, a slideshow of <b>Promotions</b> (translatable captions) and the <b>Recently checked</b> products of the session, refreshed in the current language. After <b>Auto-clear After (s)</b> seconds without a touch, results are cleared &ndash; a thin bar at the top shows the countdown.</p>
+  <img src="ppc_05_idle.png" alt="Kiosk welcome screen with promotions and history" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 9</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Tablet, wall screen or phone</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Large touch targets, landscape and portrait layouts, and a phone layout that stacks price, variants and stock.</p>
+  <img src="ppc_14_mobile.png" alt="Kiosk on a phone" style="width:100%;max-width:400px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== STOCK RULES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Availability status</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each cell is coloured from the quantity <b>Available</b> and the kiosk&rsquo;s <b>Low Stock Threshold</b>.</p>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">In stock</span> available &gt; threshold</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Low stock</span> 0 &lt; available &le; threshold</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Out of stock</span> available &le; 0</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> Available = On hand &minus; Reserved, summed over the internal locations in scope. Example: Shelf 1 holds 7 units with 2 reserved for a delivery, and a bin under it holds 1 &rarr; with <b>Locations</b> set to Shelf 1, the kiosk shows 8 on hand and 6 available.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Handled by the code and covered by the automated tests.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Lost or shared link</b><br/><span style="color:#555;">Regenerate Token; the old URL returns 404 at once and the screen asks customers to contact staff.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Products you don&rsquo;t want public</b><br/><span style="color:#555;">The Products Filter applies to search, product pages, stock, history and even images.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Variant not sold</b><br/><span style="color:#555;">Archived variants are excluded; unavailable combinations are crossed out and redirect to the closest one.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Reservations</b><br/><span style="color:#555;">Quantities reserved for deliveries are deducted from Available, location by location.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Services and consumables</b><br/><span style="color:#555;">Prices are shown; the stock panel says stock is not tracked instead of showing zero.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Each kiosk belongs to one company: its warehouses, pricelists and products only.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Taxes</b><br/><span style="color:#555;">With Invoicing installed, choose Tax Included or Tax Excluded; price-included taxes are handled both ways.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>No pricelist configured</b><br/><span style="color:#555;">The company&rsquo;s first pricelist is used, so a new kiosk shows prices immediately.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Slow network</b><br/><span style="color:#555;">A new scan cancels the previous request; stock is cached 30&nbsp;s per variant and refreshed when shown again.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Two groups in the <b>Price Checker</b> section of the user form, plus the public kiosk itself.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees / can do</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Price Checker / User</b></td><td style="padding:10px 14px;">Reads the kiosks of their companies; never sees the access token or Kiosk URL.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Price Checker / Administrator</b></td><td style="padding:10px 14px;">Creates and edits kiosks, opens them, copies and regenerates tokens. Granted to the administrator at install.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Kiosk visitor (public)</b></td><td style="padding:10px 14px;">Only the products in the kiosk&rsquo;s filter, through dedicated endpoints returning the displayed fields; no generic data access. Pages are <i>noindex</i>, not cached and never send the token as referrer.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Multi-company</b></td><td style="padding:10px 14px;">Record rule: kiosks are visible only within their company.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>stock</code>, <code>http_routing</code> (taxes used when <code>account</code> is installed)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Menus</td><td style="padding:10px 14px;">Price Checker &rsaquo; Kiosks &middot; Price Checker &rsaquo; Configuration &rsaquo; Pricelists / Product Attributes</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Kiosk URL</td><td style="padding:10px 14px;"><code style="word-break:break-all;">/product_checker/token/&lt;token&gt;</code>, optional <code>?lang=ar_001</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;"><code style="word-break:break-all;">product.checker.config</code>, <code style="word-break:break-all;">product.checker.pricelist</code>, <code style="word-break:break-all;">product.checker.promo</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Frontend</td><td style="padding:10px 14px;">OWL application in its own asset bundle, on <code>web.frontend_layout</code>; no external library</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Translations</td><td style="padding:10px 14px;">Arabic, French (<code>.po</code> files) &ndash; add more with the standard Odoo tools</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">38: tokens, search methods, product filter, variant attribute filtering, prices per pricelist, multi-location stock (reservations, child locations, warehouse filter, status mode), public endpoints, translations, and a browser tour (scan, variant matrix, unavailable combination, stock matrix, history)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Demo data</td><td style="padding:10px 14px;">Variant products, 3 warehouses with shelves and stock, VIP pricelist, 2 ready kiosks, Arabic &amp; French</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;&nbsp; ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

@@ -1,0 +1,1085 @@
+// =============================================================================
+// Price checker kiosk
+// Touch-first layout (min. 48px targets), CSS logical properties everywhere so
+// the same rules work for LTR and RTL languages.
+// =============================================================================
+
+$ppc-radius: 18px;
+$ppc-gap: clamp(12px, 1.6vw, 24px);
+
+.o_ppc_root {
+    --ppc-primary: #714B67;
+    --ppc-primary-soft: rgba(113, 75, 103, 0.12); // fallback for browsers without color-mix()
+    @supports (color: color-mix(in srgb, red 50%, blue)) {
+        --ppc-primary-soft: color-mix(in srgb, var(--ppc-primary) 12%, white);
+    }
+    --ppc-primary-ink: #fff;
+    --ppc-bg: #f4f2f0;
+    --ppc-surface: #ffffff;
+    --ppc-ink: #1f1d24;
+    --ppc-muted: #6b6772;
+    --ppc-line: #e6e2df;
+    --ppc-in: #1f8a4c;
+    --ppc-low: #c47d0b;
+    --ppc-out: #c62828;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    overflow: hidden;
+    background: var(--ppc-bg);
+    color: var(--ppc-ink);
+    font-size: clamp(15px, 1.25vw, 19px);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+// The kiosk replaces the whole public layout.
+body.o_ppc_body {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+}
+
+.o_ppc_splash {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--ppc-primary);
+    font-size: 1.4em;
+}
+
+.o_ppc_app {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background-image: var(--ppc-background, none);
+    background-size: cover;
+    background-position: center;
+}
+
+// Logical spacing helpers (Bootstrap's me-*/ms-* are physical in the LTR bundle).
+.o_ppc_mie {
+    margin-inline-end: 0.5em;
+}
+
+.o_ppc_mis {
+    margin-inline-start: 0.5em;
+}
+
+.o_ppc_flip_rtl {
+    [dir="rtl"] & {
+        transform: scaleX(-1);
+    }
+}
+
+// ---------------------------------------------------------------- header ----
+.o_ppc_idle_progress {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    height: 4px;
+    z-index: 5;
+    > div {
+        // A width (not a transform) so it shrinks towards the inline start in LTR and RTL.
+        height: 100%;
+        background: var(--ppc-primary);
+        transition: width 0.2s linear;
+    }
+}
+
+.o_ppc_header {
+    display: flex;
+    align-items: center;
+    gap: $ppc-gap;
+    padding: $ppc-gap;
+    background: var(--ppc-surface);
+    box-shadow: 0 1px 0 var(--ppc-line), 0 8px 24px rgba(0, 0, 0, 0.04);
+    z-index: 2;
+}
+
+.o_ppc_brand {
+    flex: none;
+    border: 0;
+    background: none;
+    padding: 0;
+    img {
+        display: block;
+        height: 52px;
+        max-width: 160px;
+        object-fit: contain;
+    }
+}
+
+.o_ppc_search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    padding-inline-start: 18px;
+    padding-inline-end: 6px;
+    height: 64px;
+    border: 2px solid var(--ppc-line);
+    border-radius: 999px;
+    background: var(--ppc-bg);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    &:focus-within {
+        border-color: var(--ppc-primary);
+        box-shadow: 0 0 0 4px var(--ppc-primary-soft);
+        background: var(--ppc-surface);
+    }
+}
+
+.o_ppc_search_icon {
+    color: var(--ppc-muted);
+    font-size: 1.4em;
+}
+
+.o_ppc_search_input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 1.25em;
+    user-select: text;
+    &::-webkit-search-cancel-button {
+        display: none;
+    }
+}
+
+.o_ppc_icon_btn {
+    flex: none;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ppc-muted);
+    font-size: 1.3em;
+    &:active,
+    &.active {
+        background: var(--ppc-primary-soft);
+        color: var(--ppc-primary);
+    }
+}
+
+.o_ppc_search_btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 50px;
+    padding-inline: 22px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ppc-primary);
+    color: var(--ppc-primary-ink);
+    font-weight: 600;
+    font-size: 1.05em;
+    &:disabled {
+        opacity: 0.6;
+    }
+    @media (max-width: 640px) {
+        .o_ppc_search_btn_label {
+            display: none;
+        }
+    }
+}
+
+// Language switcher
+.o_ppc_lang {
+    position: relative;
+    flex: none;
+}
+
+.o_ppc_lang_btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    padding-inline: 16px;
+    border: 2px solid var(--ppc-line);
+    border-radius: 999px;
+    background: var(--ppc-surface);
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+.o_ppc_lang_menu {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: calc(100% + 8px);
+    min-width: 240px;
+    padding: 8px;
+    border-radius: $ppc-radius;
+    background: var(--ppc-surface);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    z-index: 20;
+}
+
+.o_ppc_lang_item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 14px;
+    min-height: 56px;
+    padding-inline: 14px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    font-size: 1.1em;
+    text-align: start;
+    &.active {
+        background: var(--ppc-primary-soft);
+        color: var(--ppc-primary);
+        font-weight: 600;
+    }
+}
+
+.o_ppc_lang_iso {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--ppc-bg);
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+// ------------------------------------------------------------------ main ----
+.o_ppc_main {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: $ppc-gap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.o_ppc_keyboard_open .o_ppc_main {
+    padding-block-end: 340px;
+}
+
+.o_ppc_loading,
+.o_ppc_message {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    color: var(--ppc-muted);
+    h2 {
+        color: var(--ppc-ink);
+        font-weight: 700;
+    }
+}
+
+.o_ppc_message_query {
+    padding: 4px 16px;
+    border-radius: 999px;
+    background: var(--ppc-surface);
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.o_ppc_error i {
+    color: var(--ppc-out);
+}
+
+.o_ppc_spinner {
+    width: 56px;
+    height: 56px;
+    border: 5px solid var(--ppc-primary-soft);
+    border-block-start-color: var(--ppc-primary);
+    border-radius: 50%;
+    animation: o_ppc_spin 0.8s linear infinite;
+}
+
+@keyframes o_ppc_spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// ------------------------------------------------------------------ idle ----
+.o_ppc_idle {
+    display: grid;
+    min-height: 100%;
+    gap: $ppc-gap;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "welcome promos"
+        "history history";
+    @media (orientation: portrait), (max-width: 900px) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "welcome" "promos" "history";
+        grid-template-rows: auto auto auto;
+    }
+}
+
+.o_ppc_welcome {
+    grid-area: welcome;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(16px, 3vw, 48px);
+    border-radius: $ppc-radius;
+    background: var(--ppc-surface);
+    h1 {
+        margin: 24px 0 8px;
+        font-size: clamp(1.8em, 3.2vw, 3em);
+        font-weight: 800;
+        line-height: 1.1;
+    }
+    p {
+        margin: 0;
+        color: var(--ppc-muted);
+        font-size: 1.2em;
+    }
+}
+
+.o_ppc_scan_anim {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    background: var(--ppc-primary-soft);
+    color: var(--ppc-primary);
+    font-size: 64px;
+    overflow: hidden;
+}
+
+.o_ppc_scan_line {
+    position: absolute;
+    inset-inline: 12px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--ppc-out);
+    box-shadow: 0 0 12px var(--ppc-out);
+    animation: o_ppc_scan 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes o_ppc_scan {
+    from {
+        inset-block-start: 18px;
+    }
+    to {
+        inset-block-start: calc(100% - 21px);
+    }
+}
+
+.o_ppc_promos {
+    grid-area: promos;
+    position: relative;
+    align-self: center;
+    width: 100%;
+    aspect-ratio: 16 / 9; // promotional artwork is designed for 16:9, never cropped
+    border-radius: $ppc-radius;
+    overflow: hidden;
+    background: var(--ppc-ink);
+}
+
+.o_ppc_promo {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    &.active {
+        opacity: 1;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    figcaption {
+        position: absolute;
+        inset-inline: 0;
+        inset-block-end: 0;
+        padding: 48px 28px 40px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+        color: #fff;
+        font-size: 1.4em;
+        font-weight: 700;
+    }
+}
+
+.o_ppc_promo_dots {
+    position: absolute;
+    inset-block-end: 14px;
+    inset-inline: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    span {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.5);
+        transition: width 0.3s;
+        &.active {
+            width: 24px;
+            background: #fff;
+        }
+    }
+}
+
+.o_ppc_history {
+    grid-area: history;
+    padding: 16px 20px;
+    border-radius: $ppc-radius;
+    background: var(--ppc-surface);
+}
+
+.o_ppc_history_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+        margin: 0;
+        font-size: 1.05em;
+        font-weight: 700;
+    }
+}
+
+.o_ppc_history_list {
+    display: flex;
+    gap: 12px;
+    margin-block-start: 12px;
+    overflow-x: auto;
+    padding-block-end: 4px;
+}
+
+.o_ppc_history_item {
+    flex: none;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+    width: 260px;
+    padding: 8px;
+    border: 1px solid var(--ppc-line);
+    border-radius: 14px;
+    background: var(--ppc-surface);
+    text-align: start;
+    img {
+        grid-row: span 2;
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+        object-fit: cover;
+        background: var(--ppc-bg);
+    }
+}
+
+.o_ppc_history_name {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.o_ppc_history_price {
+    color: var(--ppc-primary);
+    font-weight: 700;
+}
+
+// --------------------------------------------------------------- results ----
+.o_ppc_results_title {
+    margin-block-end: $ppc-gap;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.o_ppc_results_grid {
+    display: grid;
+    gap: $ppc-gap;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.o_ppc_result_card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 0;
+    border-radius: $ppc-radius;
+    background: var(--ppc-surface);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    text-align: start;
+    transition: transform 0.12s;
+    &:active {
+        transform: scale(0.98);
+    }
+    img {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        object-fit: cover;
+        background: var(--ppc-bg);
+    }
+}
+
+.o_ppc_result_name {
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.o_ppc_result_ref {
+    color: var(--ppc-muted);
+    font-size: 0.85em;
+}
+
+.o_ppc_result_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: auto;
+}
+
+.o_ppc_result_price {
+    color: var(--ppc-primary);
+    font-size: 1.15em;
+    font-weight: 800;
+}
+
+.o_ppc_badge {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--ppc-primary-soft);
+    color: var(--ppc-primary);
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+// --------------------------------------------------------------- product ----
+.o_ppc_back {
+    margin-block-end: 8px;
+    padding-inline: 0;
+    color: var(--ppc-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.o_ppc_product {
+    display: grid;
+    gap: $ppc-gap;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    @media (max-width: 1280px) {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        .o_ppc_product_stock {
+            grid-column: 1 / -1;
+        }
+    }
+    @media (max-width: 760px) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.o_ppc_product_media {
+    position: sticky;
+    inset-block-start: 0;
+    border-radius: $ppc-radius;
+    overflow: hidden;
+    background: var(--ppc-surface);
+    aspect-ratio: 1;
+}
+
+.o_ppc_product_image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: o_ppc_fade 0.35s ease;
+}
+
+@keyframes o_ppc_fade {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+.o_ppc_product_info,
+.o_ppc_stock {
+    padding: clamp(16px, 2vw, 28px);
+    border-radius: $ppc-radius;
+    background: var(--ppc-surface);
+}
+
+.o_ppc_product_category {
+    color: var(--ppc-muted);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.o_ppc_product_name {
+    margin: 4px 0;
+    font-size: clamp(1.5em, 2.4vw, 2.3em);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.o_ppc_variant_label {
+    color: var(--ppc-muted);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.o_ppc_identifiers {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2px 14px;
+    margin: 14px 0;
+    font-size: 0.95em;
+    dt {
+        color: var(--ppc-muted);
+        font-weight: 400;
+    }
+    dd {
+        margin: 0;
+        font-family: monospace;
+        font-size: 1.05em;
+        text-align: start;
+        unicode-bidi: isolate;
+    }
+}
+
+.o_ppc_prices {
+    margin-block: 8px 20px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    background: var(--ppc-primary-soft);
+}
+
+.o_ppc_price_label {
+    color: var(--ppc-muted);
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.o_ppc_price_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+}
+
+.o_ppc_price {
+    color: var(--ppc-primary);
+    font-size: clamp(2.2em, 4vw, 3.4em);
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    unicode-bidi: isolate;
+}
+
+.o_ppc_price_old {
+    color: var(--ppc-muted);
+    font-size: 1.2em;
+}
+
+.o_ppc_discount {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--ppc-out);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95em;
+}
+
+.o_ppc_price_others {
+    margin: 12px 0 0;
+    padding: 12px 0 0;
+    border-block-start: 1px dashed var(--ppc-line);
+    list-style: none;
+    li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-block: 4px;
+    }
+}
+
+.o_ppc_price_other {
+    margin-inline-start: auto;
+    font-size: 1.3em;
+    font-weight: 700;
+    unicode-bidi: isolate;
+}
+
+.o_ppc_description {
+    margin: 18px 0 0;
+    color: var(--ppc-muted);
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+// Variant matrix
+.o_ppc_attribute + .o_ppc_attribute {
+    margin-block-start: 16px;
+}
+
+.o_ppc_attribute_title {
+    margin-block-end: 8px;
+    color: var(--ppc-muted);
+    strong {
+        color: var(--ppc-ink);
+    }
+}
+
+.o_ppc_attribute_values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.o_ppc_value {
+    position: relative;
+    border: 2px solid var(--ppc-line);
+    background: var(--ppc-surface);
+    color: var(--ppc-ink);
+    font-weight: 600;
+    transition: border-color 0.15s, transform 0.12s;
+    &:active {
+        transform: scale(0.95);
+    }
+    &.o_ppc_selected {
+        border-color: var(--ppc-primary);
+        box-shadow: 0 0 0 3px var(--ppc-primary-soft);
+    }
+    &.o_ppc_unavailable {
+        opacity: 0.45;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 50% -2px auto;
+            height: 2px;
+            background: var(--ppc-muted);
+            transform: rotate(-20deg);
+        }
+    }
+}
+
+.o_ppc_pill {
+    min-width: 56px;
+    height: 52px;
+    padding-inline: 16px;
+    border-radius: 14px;
+    &.o_ppc_selected {
+        background: var(--ppc-primary);
+        color: var(--ppc-primary-ink);
+    }
+}
+
+.o_ppc_swatch {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px var(--ppc-surface);
+    &.o_ppc_selected {
+        box-shadow: inset 0 0 0 3px var(--ppc-surface), 0 0 0 3px var(--ppc-primary-soft);
+    }
+}
+
+// Stock
+.o_ppc_stock {
+    transition: opacity 0.2s;
+    &.o_ppc_stock_loading {
+        opacity: 0.55;
+    }
+}
+
+.o_ppc_stock_header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-block-end: 12px;
+    h2 {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+}
+
+.o_ppc_tabs {
+    display: inline-flex;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--ppc-bg);
+}
+
+.o_ppc_tab {
+    min-height: 44px;
+    padding-inline: 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ppc-muted);
+    font-weight: 600;
+    &.active {
+        background: var(--ppc-surface);
+        color: var(--ppc-ink);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.o_ppc_stock_empty {
+    padding: 24px 0;
+    color: var(--ppc-muted);
+    text-align: center;
+}
+
+.o_ppc_matrix_wrapper {
+    overflow-x: auto;
+}
+
+.o_ppc_stock_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    th,
+    td {
+        padding: 10px 8px;
+        border-block-end: 1px solid var(--ppc-line);
+        text-align: start;
+    }
+    thead th {
+        color: var(--ppc-muted);
+        font-size: 0.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    .o_ppc_num {
+        text-align: end;
+        white-space: nowrap;
+    }
+    tfoot th,
+    tfoot td {
+        border-block-end: 0;
+        font-weight: 800;
+    }
+}
+
+.o_ppc_stock_wh th {
+    font-weight: 700;
+}
+
+.o_ppc_wh_code {
+    display: inline-block;
+    margin-inline-end: 8px;
+    padding: 1px 8px;
+    border-radius: 6px;
+    background: var(--ppc-bg);
+    font-size: 0.8em;
+}
+
+.o_ppc_stock_loc td:first-child {
+    padding-inline-start: 28px;
+    color: var(--ppc-muted);
+}
+
+.o_ppc_matrix_row {
+    cursor: pointer;
+    &.o_ppc_selected {
+        background: var(--ppc-primary-soft);
+        th {
+            color: var(--ppc-primary);
+        }
+    }
+}
+
+.o_ppc_dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-inline-end: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: middle;
+}
+
+.o_ppc_status_in {
+    color: var(--ppc-in);
+}
+
+.o_ppc_status_low {
+    color: var(--ppc-low);
+}
+
+.o_ppc_status_out {
+    color: var(--ppc-out);
+}
+
+.o_ppc_stock_uom {
+    margin-block-start: 10px;
+    color: var(--ppc-muted);
+    font-size: 0.85em;
+}
+
+// -------------------------------------------------------------- keyboard ----
+.o_ppc_keyboard {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px clamp(8px, 4vw, 120px) 18px;
+    background: #2a2730;
+    box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.2);
+    animation: o_ppc_slide_up 0.2s ease;
+    // Key order is physical: keep it LTR, even in the RTL bundle (rtlcss).
+    /*rtl:ignore*/
+    direction: ltr;
+    &.o_ppc_keyboard_numeric .o_ppc_kb_row:not(.o_ppc_kb_actions) {
+        max-width: 420px;
+        margin-inline: auto;
+        width: 100%;
+    }
+}
+
+@keyframes o_ppc_slide_up {
+    from {
+        transform: translateY(100%);
+    }
+}
+
+.o_ppc_kb_row {
+    display: flex;
+    gap: 8px;
+}
+
+.o_ppc_key {
+    flex: 1;
+    min-width: 0;
+    height: 56px;
+    border: 0;
+    border-radius: 10px;
+    background: #4a4652;
+    color: #fff;
+    font-size: 1.35em;
+    &:active {
+        background: #6a6574;
+    }
+}
+
+.o_ppc_key_fn {
+    flex: 1.2;
+    background: #37333d;
+    font-size: 1em;
+    &.active {
+        background: var(--ppc-primary);
+    }
+}
+
+.o_ppc_key_space {
+    flex: 4;
+}
+
+.o_ppc_key_enter {
+    flex: 2;
+    background: var(--ppc-primary);
+    font-size: 1em;
+    font-weight: 700;
+}
+
+// ---------------------------------------------------------------- camera ----
+.o_ppc_camera {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    background: #000;
+    video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.o_ppc_camera_frame {
+    position: relative;
+    width: #{"min(70vw, 560px)"}; // CSS min(), not the Sass function
+    aspect-ratio: 16 / 9;
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.45);
+}
+
+.o_ppc_camera_hint,
+.o_ppc_camera_error {
+    position: absolute;
+    inset-block-end: 48px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 1.15em;
+}
+
+.o_ppc_camera_close {
+    position: absolute;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+    width: 60px;
+    height: 60px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 1.5em;
+}
+
+.o_ppc_history_clear {
+    min-height: 44px;
+    padding-inline: 14px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ppc-bg);
+    color: var(--ppc-primary);
+    font-weight: 600;
+}
+
+// Phones: logo and language on the first row, full-width search below.
+@media (max-width: 640px) {
+    .o_ppc_header {
+        flex-wrap: wrap;
+        row-gap: 10px;
+        padding: 10px 12px;
+    }
+    .o_ppc_brand img {
+        height: 40px;
+    }
+    .o_ppc_lang {
+        margin-inline-start: auto;
+    }
+    .o_ppc_lang_btn {
+        height: 46px;
+    }
+    .o_ppc_search {
+        order: 3;
+        flex: 1 1 100%;
+        height: 56px;
+    }
+}
